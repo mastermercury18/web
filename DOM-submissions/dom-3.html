@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To-Do List Maker</title>
+</head>
+<body>
+	<div>
+		<input id="myInput" type="text" placeholder="Enter a task">
+		<button id="myBtn">Add Task</button>
+	</div>
+	<div>
+		<p>My To-Do List</p>
+		<ul id="myList"></ul>
+	</div>
+
+	<script>
+		document.querySelector("#myBtn").onclick = (ev) => {
+			let inputValue = document.querySelector("#myInput").value;
+			let myList = document.querySelector("#myList");
+			let newItem = document.createElement("li");
+
+			newItem.textContent = inputValue;
+			myList.appendChild(newItem);
+			document.querySelector("#myInput").value = "";
+		}
+	</script>
+</body>
+</html>

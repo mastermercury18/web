@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <title>Word Counter</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+        textarea {
+            width: 50%;
+            height: 200px;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Word Counter</h2>
+
+    <textarea id="textArea" placeholder="Type your text here..."></textarea>
+    <p>Word Count: <span id="wordCount" class="word-count">0</span></p>
+
+    <script>
+        function countWords() {
+            const text = document.querySelector("#textArea").value;
+            
+            const words = text.split(" ");
+            
+            document.querySelector("#wordCount").textContent = words.length;
+        }
+
+        document.querySelector("#textArea").oninput = countWords;
+    </script>
+
+</body>
+</html>

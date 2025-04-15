@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        input {
+            padding: 10px;
+            width: 250px;
+            margin-bottom: 10px;
+        }
+        .valid {
+            color: green;
+        }
+        .invalid {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Credit Card Validator</h2>
+    <input id="cardInput" type="text" placeholder="Enter credit card number" oninput="validateCard()">
+    <span id="notification"></span>
+
+    <script>
+        const check_valid = (number) => {
+            let sum = 0;
+            Array.from(number).map((char, i) => {
+                let digit = parseInt(char);
+                if (i % 2 === 0) {
+                    digit *= 2;
+                    if (digit >= 10) {
+                        const digits = Array.from(digit.toString()).map(Number);
+                        sum += digits.reduce((acc, num) => acc + num, 0);
+                    } else {
+                        sum += digit;
+                    }
+                } else {
+                    sum += digit;
+                }
+            });
+            return sum % 10 === 0;
+        }
+
+        function validateCard() {
+            const cardNumber = document.querySelector("#cardInput").value;
+            const notification = document.querySelector("#notification");
+
+            if (check_valid(cardNumber)) {
+                notification.textContent = "Card is valid";
+                notification.className = "valid";
+            } else {
+                notification.textContent = "Card is invalid";
+                notification.className = "invalid";
+            } 
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Keypress Color Change</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Press a key to change the background color. Use lowercase letters!</h2>
+
+    <script>
+        document.body.onkeydown = (event) => {
+            switch(event.key) { 
+                case 'r':
+                    document.body.style.backgroundColor = 'red';
+                    break;
+                case 'b':
+                    document.body.style.backgroundColor = 'blue';
+                    break;
+                case 'g':
+                    document.body.style.backgroundColor = 'green';
+                    break;
+                case 'y':
+                    document.body.style.backgroundColor = 'yellow';
+                    break;
+                case 'o':
+                    document.body.style.backgroundColor = 'orange';
+                    break;
+                case 'p':
+                    document.body.style.backgroundColor = 'purple';
+                    break;
+                case 'w':
+                    document.body.style.backgroundColor = 'white';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

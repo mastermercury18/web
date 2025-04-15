@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Characters</title>
+</head>
+<body>
+
+  <h1>Characters</h1>
+  <ul>
+    {% for c in characters %}
+      <li>
+        <a href="{{ url_for('character', character_id=c['c_id']) }}">
+          {{ c['c_name'] }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+</body>
+</html>

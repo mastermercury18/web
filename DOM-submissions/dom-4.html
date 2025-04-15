@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .clickbox {
+            width: 125px;
+            height: 125px;
+            background-color: #dedede;
+        }
+    </style>
+</head>
+<body>
+    <div class="clickbox"></div>
+    <script>
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#F5A623', '#8E44AD', '#FF33A6'];
+        const box = document.querySelector('.clickbox');
+
+        box.addEventListener('click', function() {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            box.style.backgroundColor = randomColor;
+        });
+    </script>
+</body>
+</html>

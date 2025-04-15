@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Size Changer</title>
+    <style>
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Font Size and Color Changer</h2>
+    <p id="text">Hi, I'm Neha and I'm excited for HOCO week!</p>
+
+    <div class="controls">
+        <button id="increaseBtn">Increase Font Size (+)</button>
+        <button id="decreaseBtn">Decrease Font Size (-)</button>
+    </div>
+
+    <script>
+        const textElement = document.querySelector("#text");
+        let currentFontSize = 16; 
+
+        document.querySelector("#increaseBtn").onclick = () => {
+            currentFontSize += 2; 
+            textElement.style.fontSize = currentFontSize + "px";
+        };
+
+        document.querySelector("#decreaseBtn").onclick = () => {
+            if (currentFontSize > 8) { 
+                currentFontSize -= 2; 
+                textElement.style.fontSize = currentFontSize + "px";
+            }
+        };
+    </script>
+
+</body>
+</html>

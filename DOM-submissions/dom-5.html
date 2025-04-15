@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 125px);
+            grid-template-rows: repeat(3, 125px);
+            gap: 10px;
+        }
+
+        .clickbox {
+            width: 125px;
+            height: 125px;
+            background-color: #dedede;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="clickbox"></div>
+        <div class="clickbox"></div>
+        <div class="clickbox"></div>
+        <div class="clickbox"></div>
+        <div class="clickbox"></div>
+        <div class="clickbox"></div>
+        <div class="clickbox"></div>
+        <div class="clickbox"></div>
+        <div class="clickbox"></div>
+    </div>
+    <script>
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#F5A623', '#8E44AD', '#FF33A6'];
+
+        function changeColor() {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            this.style.backgroundColor = randomColor; // 'this' refers to the clicked div
+        }
+
+        let boxes = Array.from(document.querySelectorAll(".clickbox"));
+
+        boxes.forEach(box => {
+            box.addEventListener('click', changeColor);
+        });
+    </script>
+</body>
+</html>

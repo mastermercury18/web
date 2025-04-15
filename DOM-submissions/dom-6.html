@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            width: 300px;
+            margin: 20px auto;
+        }
+        input {
+            width: 200px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background-color: #a0d2eb;
+        }
+        .bot-response {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <input id="userInput" type="text" placeholder="Ask something...">
+    <button id="sendBtn">Send</button>
+
+    <ul id="chatBox">
+    </ul>
+</div>
+
+<script>
+    const botResponses = [
+        "I'm just a simple bot!",
+        "Tell me more!",
+        "That's interesting.",
+        "Can you elaborate?",
+        "I see! Let's keep chatting."
+    ];
+
+    function getBotResponse() {
+        const randomIndex = Math.floor(Math.random() * botResponses.length);
+        return botResponses[randomIndex];
+    }
+
+    document.querySelector("#sendBtn").onclick = function() {
+        const userInput = document.querySelector("#userInput").value;
+
+        if (userInput.trim() !== "") {
+            const userMessage = document.createElement("li");
+            userMessage.classList.add("user-message");
+            userMessage.textContent = userInput;
+
+            const botMessage = document.createElement("li");
+            botMessage.classList.add("bot-response");
+            botMessage.textContent = getBotResponse();
+
+            const chatBox = document.querySelector("#chatBox");
+            chatBox.appendChild(userMessage);
+            chatBox.appendChild(botMessage);
+
+            document.querySelector("#userInput").value = "";
+        }
+    }
+</script>
+
+</body>
+</html>

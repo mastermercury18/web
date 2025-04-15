@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/pckosek/css/director_theme.css">     
+
+    <title>Director</title>
+</head>
+<body>
+    <div class="center-wrapper">
+        <div class="center">
+            <h1>Hello, World 0- Client JS 01</h1>
+            <p>This is the default template from 
+                <a href="https://director.tjhsst.edu/pckosek/">Director</a>.
+            </p>
+        </div>
+    </div>
+
+    <div>
+		<input id="myInpt" type="text">
+		<button id="myBtn">Press Me</button>
+	</div>
+	<div>
+		<span id="converted"></span>
+	</div>
+
+    <h1> Hello </h1>
+
+<script type='text/javascript'>
+    console.log('hello')
+
+    console.log('world')
+    var x = 254;
+    console.log(x);
+
+    document.querySelector("#myBtn").onclick = (ev) => {
+			console.log('pressed')
+            let farenheit = document.querySelector("#myInpt").value;
+            let celsius = (farenheit - 32) * 5/9
+            document.querySelector("#converted").textContent = celsius;
+		}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ character['c_name'] }}</title>
+</head>
+<body>
+
+  <h1>{{ character['c_name'] }}</h1>
+  <ul>
+    <li>ID: {{ character['c_id'] }}</li>
+    <li>Wit: {{ character['c_wit'] }}</li>
+    <li>Strength: {{ character['c_strength'] }}</li>
+    <li>Attack: {{ character['c_attack'] }}</li>
+    <li>Defense: {{ character['c_defense'] }}</li>
+    <li>Magic: {{ character['c_magic'] }}</li>
+  </ul>
+
+  <a href="{{ url_for('index') }}">Go back to characters page</a>
+  <br><br>
+  <a href="{{ url_for('update_character', character_id=character['c_id']) }}">Update character</a>
+
+</body>
+</html>
