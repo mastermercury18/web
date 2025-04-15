@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>Welcome to Neha's Batman-Themed Escape Room!</title>
+    <style>
+        body{
+            background-image: url("{{ url_for('static', filename='batcave.png') }}");
+        }
+        .center-container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-container">
+        <h1>Welcome to Neha's Batman-Themed Escape Room!</h1>
+    <form action="{{ url_for('puzzle1') }}" method="post">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Begin</button>
+    </form>
+    </div>
+    
+</body>
+</html>

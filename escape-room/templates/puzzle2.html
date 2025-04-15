@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Puzzle 2</title>
+    <style>
+        body{
+            background-image: url("{{ url_for('static', filename='puzzle2_background.webp') }}");
+        }
+        .center-container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-container">
+        <h2>Mr. Freeze's Message</h2>
+    <img src="{{ url_for('static', filename='mr freeze.jpg') }}" alt="Mr. Freeze Puzzle" width="500" height="auto">
+   
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    
+    <form method="post">
+        <label for="answer">What did Mr. Freeze mean to say?</label>
+        <input type="text" id="answer" name="answer" required>
+        <button type="submit">Submit</button>
+    </form>
+    <h3>Previously Unlocked Rooms:</h3>
+    <ul>
+        {% if 'puzzle1' in unlocked_rooms %}
+            <li><a href="{{ url_for('puzzle1') }}">Go back to Puzzle 1</a></li>
+        {% endif %}
+        {% if 'puzzle2' in unlocked_rooms %}
+            <li><a href="{{ url_for('puzzle2') }}">Go back to Puzzle 2</a></li>
+        {% endif %}
+        {% if 'puzzle3' in unlocked_rooms %}
+            <li><a href="{{ url_for('puzzle3') }}">Go back to Puzzle 3</a></li>
+        {% endif %}
+        {% if 'puzzle4' in unlocked_rooms %}
+            <li><a href="{{ url_for('puzzle4') }}">Go back to Puzzle 4</a></li>
+        {% endif %}
+        {% if 'puzzle5' in unlocked_rooms %}
+            <li><a href="{{ url_for('puzzle5') }}">Go back to Puzzle 5</a></li>
+        {% endif %}
+        {% if 'puzzle6' in unlocked_rooms %}
+            <li><a href="{{ url_for('puzzle6') }}">Go back to Puzzle 6</a></li>
+        {% endif %}
+    </ul>
+
+    <div id="start-time" data-start-time="{{ session['start_time'] }}"></div>
+
+    <script>
+    function updateTimer() {
+        const startTime = parseFloat(document.getElementById('start-time').getAttribute('data-start-time')) * 1000;
+        const elapsedTime = Date.now() - startTime
+        const hours = Math.floor(elapsedTime / 3600000)
+        const minutes = Math.floor((elapsedTime % 3600000) / 60000)
+        const seconds = Math.floor((elapsedTime % 60000) / 1000)
+
+        document.getElementById('timer').textContent = `Time Elapsed: ${hours}h ${minutes}m ${seconds}s`
+    }
+    setInterval(updateTimer, 1000);
+    window.onload = updateTimer;
+    </script>
+    <div id="timer">Time Elapsed: 0h 0m 0s</div>
+    </div>
+
+</body>
+</html>
